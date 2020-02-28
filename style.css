@@ -1,0 +1,406 @@
+@charset "UTF-8";
+body {
+  overflow: hidden;
+}
+
+header {
+  z-index: 900;
+}
+
+@media screen and (max-width: 600px) {
+  header .wrap .navbar {
+    background-color: #343A40;
+  }
+}
+
+header .wrap .navbar .navbar-brand {
+  font-size: 36px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+header .wrap .navbar .navbar-brand:hover {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+}
+
+header .wrap .navbar .navbar-collapse .navbar-nav a {
+  color: white;
+  position: relative;
+  text-decoration: none;
+  font-size: 24px;
+  margin-right: 30px;
+}
+
+header .wrap .navbar .navbar-collapse .navbar-nav a:after {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  content: "";
+  width: 90%;
+  height: 2px;
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+  background: white;
+}
+
+header .wrap .navbar .navbar-collapse .navbar-nav a:hover::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.main-visual {
+  position: relative;
+}
+
+.main-visual #canvasOverlay {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background: #000;
+  width: 100%;
+  height: calc(100% - 80px);
+  mix-blend-mode: hard-light;
+}
+
+.main-visual #bg {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 80px);
+  /* 背景グラデーションの作成 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#14b8b8), color-stop(#4747eb), to(#b814b8));
+  background: linear-gradient(to bottom, #14b8b8, #4747eb, #b814b8);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 10s ease infinite;
+          animation: AnimationName 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 50% 0;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 50% 0;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0;
+  }
+}
+
+.main-visual .main-content {
+  mix-blend-mode: lighten;
+  opacity: 0.8;
+  position: relative;
+  top: -50px;
+}
+
+.main-visual .scroll-content {
+  mix-blend-mode: lighten;
+  position: relative;
+  height: 10%;
+  bottom: 0;
+  display: none;
+}
+
+.main-visual::before {
+  font-size: 16px;
+  content: 'scroll';
+  bottom: 130px;
+  position: absolute;
+  color: white;
+  z-index: 9999;
+  margin: 0 auto;
+  left: calc(50% - 16px);
+}
+
+.main-visual::after {
+  content: "";
+  width: 1px;
+  height: 50px;
+  border-left: 1px solid white;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+}
+
+.profile h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile .fp-tableCell {
+    vertical-align: top;
+  }
+}
+
+.profile .empty-box {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .profile .empty-box {
+    width: 90%;
+  }
+}
+
+.profile .empty-box::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  background-color: white;
+}
+
+.profile .empty-box::before {
+  content: "";
+  width: 2px;
+  height: 0px;
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+  background-color: white;
+}
+
+.profile .empty-box:hover::before {
+  height: calc(100%+1px);
+  height: 100%;
+}
+
+.profile .empty-box:hover::after {
+  width: calc(100%+1px);
+  width: 100%;
+}
+
+.profile .empty-box .profile-content {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .profile .empty-box .profile-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.profile .empty-box .profile-content::after {
+  content: "";
+  width: 2px;
+  height: 0px;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+  background-color: white;
+}
+
+.profile .empty-box .profile-content::before {
+  content: "";
+  width: 0px;
+  height: 2px;
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  background-color: white;
+}
+
+.profile .empty-box .profile-content:hover::after {
+  height: calc(100%+1px);
+  height: 100%;
+}
+
+.profile .empty-box .profile-content:hover::before {
+  width: calc(100%+1px);
+  width: 100%;
+}
+
+.profile .empty-box .profile-content img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile .empty-box .profile-content img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+  }
+}
+
+.profile .empty-box .profile-content .content-text {
+  padding: 70px 30px 30px 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile .empty-box .profile-content .content-text {
+    padding: 30px 10px 10px 10px;
+  }
+}
+
+.profile .empty-box .profile-content .content-text p {
+  font-size: 22px;
+}
+
+@media screen and (max-width: 600px) {
+  .profile .empty-box .profile-content .content-text p {
+    font-size: 16px;
+  }
+}
+
+.skills .wrap h1 {
+  padding-bottom: 100px;
+}
+
+.skills .wrap .container .row .col-md-4 {
+  position: relative;
+}
+
+.skills .wrap .container .row .col-md-4 .mask {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #000;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: scale(1, 1) rotateZ(0deg);
+          transform: scale(1, 1) rotateZ(0deg);
+}
+
+.skills .wrap .container .row .col-md-4:hover .mask {
+  opacity: 0.9;
+  -webkit-transform: scale(1, 1) rotateZ(360deg);
+          transform: scale(1, 1) rotateZ(360deg);
+}
+
+.skills .wrap .container .row .fab, .skills .wrap .container .row .fas {
+  font-size: 80px;
+  color: white;
+}
+
+.works .wrap {
+  padding-top: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .works .wrap h1 {
+    padding-bottom: 50px;
+  }
+}
+
+.works .wrap .container .carousel {
+  padding: 0 40px 40px 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .works .wrap .container .carousel {
+    padding: 0 0 30px 0;
+  }
+}
+
+.works .wrap .container .carousel .carousel-indicators {
+  bottom: 10px;
+}
+
+.works .wrap .container .carousel .carousel-indicators li {
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.works .wrap .container .carousel .carousel-indicators li .last {
+  margin: 0;
+}
+
+.works .wrap .container .carousel .fp-tableCell {
+  height: auto !important;
+}
+
+.works .wrap .container .carousel .carousel-inner .carousel-item img {
+  width: 700px;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .works .wrap .container .carousel .carousel-inner .carousel-item img {
+    width: 85%;
+    height: auto;
+  }
+}
+
+.works .wrap .container .carousel .carousel-inner .carousel-item p {
+  text-align: center;
+  color: white;
+}
+
+.contact .wrap h1 {
+  padding-bottom: 50px;
+}
+
+.contact .wrap p {
+  font-size: 20px;
+}
+
+.contact .footer {
+  padding-top: 50px;
+}
+/*# sourceMappingURL=style.css.map */
