@@ -45,17 +45,9 @@ $(document).ready(function() {
         '<div class="only-sp"><button class="btn btn-sm btn-secondary close-btn"><span class="fa fa-times"></span></button></div>'
         );
     
-    $(".close-btn").click(
-        function(e) {
-            if($(".mask").is(":visible")){
-            console.log("close true");
-            e.stopPropagation();
-            $(this).parents(".mask").hide();
-            }
-        }
-    );
 
-    /*$(document).click(function(event){
+
+    $("html,body").not(".detail").click(function(event){
         console.log("click on");
         event.stopPropagation();
         var count = 0;
@@ -68,13 +60,11 @@ $(document).ready(function() {
             console.log("count="+count);
         }    
         if(count==1){
-            if(!$(event.target).closest(".mask").length) {
-
-                console.log("close other true");
-                $(".mask").hide();
+            for(var i = 0;i < styles.length;i++){
+                styles[i].style.display = "none";
             }
         }
-    });*/
+    });
 
 
     $(".detail").click(function() {
@@ -89,8 +79,21 @@ $(document).ready(function() {
             //console.log(count);
         }    
         if(count==0) {
-            $(this).find(".mask").fadeIn();
+            //console.log("mask fadein");
+            $(this).parents(".detail").find(".mask").fadeIn();
+        }else{
+            $(this).parents(".detail").find(".mask").fadeOut();
         }
-    })
+    });
+
+    $(".close-btn").click(
+        function(e) {
+            if($(".mask").is(":visible")){
+            console.log("close true");
+            e.stopPropagation();
+            $(this).parents(".mask").hide();
+            }
+        }
+    );
 
 });
