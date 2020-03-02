@@ -15,6 +15,8 @@
 </head>
 <body class="bg-dark">
 
+
+
     <header>
         <div class="wrap">
             <nav class="navbar navbar-expand-md navbar-dark sticky-top">
@@ -40,19 +42,21 @@
         </div>
     </header>
 
+
+
     <div id="fullpage">
 
         <div class="section main-visual">
             <div id="bg"></div>
             <canvas id="canvasOverlay"></canvas>
             <div class="main-content">                
-                <h1 class="text-white text-center">WelCome to Daisuke Mori's<br>PORTFOLIO</h1>
+                <h1 class="text-white text-center">WelCome to <br class="only-sp"> Daisuke Mori's<br>PORTFOLIO</h1>
                 <div class="mt-2 contact-btn text-center">
-                    <button class="btn btn-primary btn-lg">CONTACT</button>
+                    <a href="#contact"><button class="btn btn-primary btn-lg">CONTACT</button></a>
                 </div>
             </div>
             <div class="scroll-content">
-                <p class="text-white text-center">scroll</p>
+                <a href="#profile"><p class="text-white text-center">scroll</p></a>
             </div>
         </div><!--main-->
 
@@ -81,37 +85,147 @@
         <div class="section skills">
             <div class="wrap">
                 <h1 class="text-white text-center">SKILLS</h1>
+                <p class="only-pc text-white text-center">Mouse Over icon, Show details</p>
+                <div class="only-sp text-white text-center">Touch icon, Show details</div>
                 <div class="container">
-                    <div class="row text-center">
+                    <div class="row text-center text-white">
                         <div class="col-xs-6 col-sm-6 col-md-4">
-                            <p><span class="fab fa-html5"></span></p>
-                            <div class="mask">
-                                <p class="caption">Sample</p>
+                            <div class="detail d-inline-block">
+                                <p>
+                                    <span class="fab fa-html5"></span>
+                                    <div class="mask">
+                                        <div class="caption">
+                                            <p class="caption-title">HTML5</p>
+                                            <p class="content">
+                                                基本から応用までコーディング可能。<br>
+                                                このページでは、canvasタグを利用したバックグラウンドを取り入れています。<br>
+                                                現在も勉強を怠らず新しい技術を学んでいます。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </p>
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-4">
-                            <p><span class="fab fa-css3-alt"></span></p>
+                            <div class="detail d-inline-block">
+                                <p><span class="fab fa-css3-alt"></span></p>
+                                <div class="mask">
+                                    <div class="caption">
+                                        <p class="caption-title">CSS3</p>
+                                        <p class="content">
+                                            HTMLと同様、基本的な技術から応用まで習得。<br>
+                                            最近はCSSアニメーションなどをより深く学んでいる。<br>
+                                            本Webサイトでも、その練習としてアニメーションを複数取り入れている。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-xs-3 col-sm-6 col-md-4">
-                            <p><span class="fab fa-bootstrap"></span></p>
+                            <div class="detail d-inline-block">
+                                <p><span class="fab fa-bootstrap"></span></p>
+                                <div class="mask">
+                                    <div class="caption">
+                                        <p class="caption-title">Bootstrap4</p>
+                                        <p class="content">
+                                            Bootstrapも扱えるため、短時間で高精度なコーディングが可能。<br>
+                                            また、Bootstrapのスタイルシートを自分用にアレンジしたスタイルシートを作っており、デザインカンプなどを緻密に再現する
+                                            必要のあるWeb製作も可能。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-4">
-                            <p><span class="fab fa-php"></span></p>
+                            <div class="detail d-inline-block">
+                                <p><span class="fab fa-php"></span></p>
+                                <div class="mask">
+                                    <div class="caption">
+                                        <p class="caption-title">php</p>
+                                        <p class="content">
+                                            phpは他のものに比べると技術は劣っているものの、<br>
+                                            基本的なお問い合わせフォームなどはもちろん、ショッピングカートなども実装可能。<br>
+                                            今後はECサイトの開発まで行えるように学習を継続する。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-4">
+                            <div class="detail d-inline-block">
                             <p><span class="fab fa-js-square"></span></p>
+                            <div class="mask">
+                                <div class="caption">
+                                    <p class="caption-title">jQuery</p>
+                                    <p class="content">
+                                        動きのあるWebサイト製作ももちろん可能。<br>
+                                        本Webサイトのように、ライブラリを用いた動的サイト製作など幅広く対応可能。<br>
+                                        ご要望に沿った実装方法を考えます。
+                                    </p>
+                                </div>
+                            </div>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-4">
-                            <p><span class="fab fa-python"></span></p>
+                            <div class="detail d-inline-block">
+                               <p><span class="fab fa-python"></span></p>
+                               <div class="mask">
+                                    <div class="caption">
+                                        <p class="caption-title">Python</p>
+                                        <p class="content">
+                                            研究(言語処理)で扱っており、特にScikit-learnやChainerを用いた
+                                            機械学習やデータサイエンスを得意としている。
+                                            また言語処理に関するデータ処理や、Word2Vecといったツールも
+                                            扱える。
+                                        </p>
+                                </div>
+                               </div>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-4">
-                            <p><span class="fab fa-wordpress"></span></p>
+                            <div class="detail d-inline-block">
+                                <p><span class="fab fa-wordpress"></span></p>
+                                <div class="mask">
+                                    <div class="caption">
+                                        <p class="caption-title">WordPress</p>
+                                        <p class="content">
+                                            Wordpressによるブログ製作、既存サイトのWordPress化など幅広く行えます。<br>
+                                            もちろんWordPressのテーマ作成も可能。<br>
+                                            要望に応じて柔軟に対応します。
+                                        </p>
+                                </div>
+                               </div>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-4">
-                            <p><span class="fab fa-sass"></span></p>
+                            <div class="detail d-inline-block">
+                                <p><span class="fab fa-sass"></span></p>
+                                <div class="mask">
+                                    <div class="caption">
+                                        <p class="caption-title">Saas</p>
+                                        <p class="content">
+                                            Saasにももちろん対応。<br>
+                                            本WebサイトもSaasを用いて構築しました。<br>
+                                            効率的かつ迅速にWebサイト構築を行います。
+                                            また、レスポンシブもわかりやすくなっています。
+                                        </p>
+                                </div>
+                               </div>
+                            </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-4">
-                            <p><span class="fas fa-language"></span></p>
+                            <div class="detail d-inline-block">
+                                <p><span class="fas fa-language"></span></p>
+                                <div class="mask">
+                                    <div class="caption">
+                                        <p class="caption-title">ENGLISH</p>
+                                        <p class="content">
+                                            TOEICスコア 860を所持。<br>
+                                            スピーキングはまだまだ伸びしろがあるものの、リスニングやリーディングは相応の力を持っている。
+                                        </p>
+                                </div>
+                               </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,21 +244,25 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <a href="https://moridai1005.github.io/portfolio/" target="_blank"><img class="d-block mx-auto" src="img/port.jpg" alt="Portfolio"></a>
-                                <p>ポートフォリオ</p>
+                                <div class="carousel-caption">
+                                    <p>ポートフォリオ</p>
+                                </div>
                             </div>
                             <div class="carousel-item">
                                 <a href="https://moridai1005.github.io/Isaracopy/" target="_blank"><img class="d-block mx-auto" src="img/isaracopy.jpg" alt="Isaracopy"></a>
+                                <div class="carousel-caption">
                                 <p>iSara模写コーディング
                                     <br>
                                     出典:<a class="text-white" href="https://isara.life/" target="_blank">https://isara.life/</a>
-                                </p>
+                                </p></div>
                             </div>
                             <div class="carousel-item">
                                 <a href="https://moridai1005.github.io/yourcoding/" target="_blank"><img class="d-block mx-auto" src="img/xd.png" alt="XD"></a>
+                                <div class="carousel-caption">
                                 <p>デザインカンプからのコーディング
                                     <br>
                                     出典:<a class="text-white" href="https://note.com/samuraibrass/n/nd1748e42934e" target="_blank">https://note.com/samuraibrass/n/nd1748e42934e</a>
-                                </p>
+                                </p></div>
                             </div>
                             <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -176,10 +294,25 @@
         </div><!--contact-->
     </div>
 
+    <!--loading-->
+    <div id="loading">
+        <div class="e-loadholder">
+            <div class="m-loader">
+                <span class="e-text">Loading</span>
+            </div>
+        </div>
+        <div id="particleCanvas-Blue"></div>
+        <div id="particleCanvas-White"></div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script defer src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script defer src="src/SpotLightShape.js"></script>
     <script defer src="src/WaveShape.js"></script>
     <script defer src="src/4_spotlight_and_wave.js"></script>
@@ -189,9 +322,5 @@
     <script src="js/fullpage.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
 </body>
 </html>

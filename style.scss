@@ -16,6 +16,225 @@ body {
     overflow: hidden;
   }
 
+#loading {
+
+    $f-title:'Roboto', sans-serif;
+    $f-body:'Open Sans', sans-serif;
+    
+    @mixin centre($axis: "both") {
+        position: absolute;
+        @if $axis == "y" {
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        @if $axis == "x" {
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        @if $axis == "both" {
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-51%, -50%);
+            -moz-transform: translate(-51%, -50%);
+            -ms-transform: translate(-51%, -50%);
+            -o-transform: translate(-51%, -50%);
+            transform: translate(-51%, -50%);
+        }
+    }
+    @mixin font-size($sizeValue: 1.6, $lineHeight: 2.4) {
+      font-size: ($sizeValue * 10) + px;
+      font-size: $sizeValue + rem;
+      line-height: ($lineHeight * 10) + px;
+    }
+    @mixin animation($animate...) {
+        $max: length($animate);
+        $animations: '';
+    
+        @for $i from 1 through $max {
+            $animations: #{$animations + nth($animate, $i)};
+    
+            @if $i < $max {
+                $animations: #{$animations + ", "};
+            }
+        }
+        -webkit-animation: $animations;
+        -moz-animation:    $animations;
+        -o-animation:      $animations;
+        animation:         $animations;
+    }
+    @mixin keyframes($animationName) {
+        @-webkit-keyframes #{$animationName} {
+            @content;
+        }
+        @-moz-keyframes #{$animationName} {
+            @content;
+        }
+        @-o-keyframes #{$animationName} {
+            @content;
+        }
+        @keyframes #{$animationName} {
+            @content;
+        }
+    }
+    
+    @include keyframes(outerRotate1) {
+      0%   {transform:translate(-50%, -50%) rotate(0)}
+      100% {transform:translate(-50%, -50%) rotate(360deg)}
+    }
+    @include keyframes(outerRotate2) {
+      0%   {transform:translate(-50%, -50%) rotate(0)}
+      100% {transform:translate(-50%, -50%) rotate(-360deg)}
+    }
+    
+    @include keyframes(textColour) {
+      0%   {color:#fff;}
+      100% {color:#3BB2D0;}
+    }
+    
+    
+    html{
+        font-size:62.5%;
+    }
+    
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:9999;
+    margin:0;
+    padding:0;
+    font-family:$f-body;
+    width:100vw;
+    height:100vh;
+    background:#222;
+    
+    
+    .e-loadholder{
+        @include centre();
+        width:240px;
+        height:240px;
+        border:5px solid #1B5F70;
+        border-radius:120px;
+        box-sizing:border-box;
+        
+        
+        &:after{
+            @include centre;
+            content:" ";
+            display:block;
+            background:#222;
+            transform-origin:center;
+            z-index:0;
+        }
+        
+        &:after{
+            width:100px;
+            height:200%;
+            @include animation('outerRotate2 30s infinite linear');
+        }
+    
+        .m-loader{
+            @include centre();
+            width:200px;
+            height:200px;
+            color:#888;
+            text-align:center;
+            border:5px solid lighten(#1B5F70, 15%);
+            border-radius:100px;
+            box-sizing:border-box;
+            z-index:20;
+            text-transform:uppercase;
+    
+            &:after{
+                @include centre;
+                content:" ";
+                display:block;
+                background:#222;
+                transform-origin:center;
+                z-index:-1;
+            }
+    
+            &:after{
+                width:100px;
+                height:106%;
+                @include animation('outerRotate1 15s infinite linear');
+            }
+    
+            .e-text{
+                @include font-size(1.4, 13);
+                @include centre();
+                @include animation('textColour 1s alternate linear infinite');
+                display:block;
+                width:140px;
+                height:140px;
+                text-align:center;
+                border:5px solid lighten(#1B5F70, 25%);
+                border-radius:70px;
+                box-sizing:border-box;
+                z-index:20;
+    
+                &:before, &:after{
+                    @include centre;
+                    content:" ";
+                    display:block;
+                    background:#222;
+                    transform-origin:center;
+                    z-index:-1;
+                }
+    
+                &:before{
+                    width:110%;
+                    height:40px;
+                    @include animation('outerRotate2 3.5s infinite linear');
+                }
+                &:after{
+                    width:40px;
+                    height:110%;
+                    @include animation('outerRotate1 8s infinite linear');
+                }
+            }
+        }
+    }
+    
+    #particleCanvas-White{
+        @include centre();
+        width:100%;
+        height:50%;
+        opacity:0.1;
+    }
+    
+    #particleCanvas-Blue{
+        @include centre();
+        width:300px;
+        height:300px;
+    }
+
+    .progress {
+        width:400px;
+        margin:0 auto;
+        position:fixed;
+        bottom:25%;
+        left:0;
+        right:0;
+        .progress-bar {
+            width:0%;
+        }
+    }
+
+}//loading
+
+.loaded { 
+    opacity:0 !important;
+    visibility: hidden !important;
+}
+
 header {
     z-index:900;
     .wrap {
@@ -82,6 +301,15 @@ header {
         mix-blend-mode: hard-light;
     }
 
+    #canvas-particle {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:calc(100% - 80px);
+        mix-blend-mode: screen;
+    }
+
     #bg {
         position:absolute;
         top:0px;
@@ -118,15 +346,28 @@ header {
         opacity:0.8;
         position:relative;
         top:-50px;
+
+        h1 {
+            .only-sp {
+                display:none;
+                @include mq(sm) {
+                    display:block;
+                }
+            }
+        }
+
     }
 
     .scroll-content {
         mix-blend-mode: lighten;
-        position:relative;
-        height:10%;
-        bottom:0;
-        display:none;
-
+        position:absolute;
+        bottom:118px;
+        left:0;
+        right:0;
+        display:block;
+        a {
+            text-decoration:none;
+        }
     }
     &::before {
         font-size:16px;
@@ -134,9 +375,10 @@ header {
         bottom:130px;
         position:absolute;
         color:white;
-        z-index:9999;
+        z-index:90;
         margin:0 auto;
-        left:calc(50% - 16px);
+        left:calc(50% - 18px);
+        display:none;
     }
     &::after {
         content:"";
@@ -149,13 +391,39 @@ header {
     }
 }//main-visual
 
+@keyframes side {
+    0% {
+        width:0px;
+    }
+    50% {
+        width:50%;
+    }
+    100%{
+        width:calc(100% + 1px);
+        width:100%;
+    }
+}
+
+@keyframes vert {
+    0% {
+        height:0px;
+    }
+    50% {
+        height:50%;
+    }
+    100%{
+        height:calc(100% + 1px);
+        height:100%;
+    }
+}
+
 .profile {
     h1 {
         font-size:40px;
         margin-bottom:10px;
     }
     .fp-tableCell {
-        @include mq {
+        @include mq(sm) {
             vertical-align: top;
         }
     }
@@ -167,34 +435,37 @@ header {
             width:90%;
         }
 
-        &::after {
-            content:"";
-            width:0px;
-            height:2px;
-            position: absolute;
-            display:block;
-            bottom:0;
-            left:0;
-            z-index:10;
-            transition:all .5s ease;
-            background-color: white;
+        &.active1 {
+                &::after {
+                content:"";
+                width:0px;
+                height:2px;
+                position: absolute;
+                display:block;
+                bottom:0;
+                left:0;
+                z-index:10;
+                animation: side 1s linear 0.75s 1 normal forwards running;
+                background-color: white;
+            }
+
+            &::before {
+                content:"";
+                width:2px;
+                height:0px;
+                position: absolute;
+                display:block;
+                bottom:0;
+                right:0;
+                z-index:10;
+                //transition:all .5s ease;
+                animation: vert 1s linear 0s 1 normal forwards running;
+                background-color: white;
+            }
+
         }
 
-        &::before {
-            content:"";
-            width:2px;
-            height:0px;
-            position: absolute;
-            display:block;
-            bottom:0;
-            right:0;
-            z-index:10;
-            transition:all .5s ease;
-            transition-delay: .5s;
-            background-color: white;
-        }
-
-        &:hover {
+        /*&:hover {
             &::before {
                 height:calc(100%+1px);
                 height:100%;
@@ -203,45 +474,47 @@ header {
                 width:calc(100%+1px);
                 width:100%;
             }
-        }
+        }*/
 
 
         .profile-content {
             position:relative;
             width:100%;
             margin:0 auto;
+            padding:30px 30px 20px 30px;
             @include mq(md) {
                 flex-direction: column;
             }
 
-            &::after {
-                content:"";
-                width:2px;
-                height:0px;
-                position: absolute;
-                display:block;
-                top:0;
-                left:0;
-                z-index:10;
-                transition:all .5s ease;
-                transition-delay: .5s;
-                background-color: white;
+            &.active2 {
+                &::after {
+                    content:"";
+                    width:2px;
+                    height:0px;
+                    position: absolute;
+                    display:block;
+                    top:0;
+                    left:0;
+                    z-index:10;
+                    animation: vert 1s linear 0s 1 normal forwards running;
+                    background-color: white;
+                }
+
+                &::before {
+                    content:"";
+                    width:0px;
+                    height:2px;
+                    position: absolute;
+                    display:block;
+                    top:0;
+                    right:0;
+                    z-index:10;
+                    animation: side 1s linear 0.75s 1 normal forwards running;
+                    background-color: white;
+                }
             }
 
-            &::before {
-                content:"";
-                width:0px;
-                height:2px;
-                position: absolute;
-                display:block;
-                top:0;
-                right:0;
-                z-index:10;
-                transition:all .5s ease;
-                background-color: white;
-            }
-
-            &:hover {
+            /*&:hover {
                 &::after {
                     height:calc(100%+1px);
                     height:100%;
@@ -250,26 +523,42 @@ header {
                     width:calc(100%+1px);
                     width:100%;
                 }
-            }
+            }*/
             
+            .image {
+                padding-right:15px;
 
-            img {
-                width:350px;
-                height:350px;
-                border-radius:50%;
-                margin:10px;
                 @include mq(md) {
-                    width:250px;
-                    height:250px;
-                    display:block;
+                    padding:0 0 15px 0;
+                }
+
+                img {
+                    width:350px;
+                    height:350px;
+                    border-radius:50%;
                     margin:auto;
-                    margin-top:10px;
+                    
+                    @include mq(md) {
+                        width:250px;
+                        height:250px;
+                        display:block;
+                        margin:auto;
+                        margin-top:10px;
+                    }
+                    @include mq(sm) {
+                        width:150px;
+                        height:150px;
+                        display:block;
+                        margin:10px auto auto auto;
+                    }
                 }
             }
+
             .content-text {
-                padding: 70px 30px 30px 30px;
+                margin:auto;
+                padding-left:15px;
                 @include mq(md) {
-                    padding:30px 10px 10px 10px;
+                    padding:0;
                 }
                 p {
                     font-size:22px;
@@ -283,45 +572,176 @@ header {
 }//profile
 
 .skills {
+    .fp-tableCell {
+        vertical-align: top;
+        @media screen and (min-height:1000px) {
+            vertical-align:middle;
+        }
+    }
     .wrap {
         h1 {
-            padding-bottom:100px;
+            padding-bottom:20px;
+        }
+        .only-pc {
+            display:block;
+            padding-bottom:20px;
+            @include mq {
+                display:none;
+            }
+        }
+        .only-sp {
+            display:none;
+            padding-bottom:20px;
+            @include mq {
+                display:block;
+            }
         }
         .container {
             .row {
 
                 .col-md-4 {
                     position:relative;
+                    margin-bottom:20px;
 
-                    .mask {
-                        width:100%;
-                        height:auto;
-                        position:absolute;
-                        top:0;
-                        bottom:0;
-                        left:0;
-                        right:0;
-                        margin:auto;
-                        background-color:#000;
-                        opacity:0;
-                        -webkit-transition:all 0.5s ease;
-                        transition:all 0.5s ease;
-                        transform:scale(1,1) rotateZ(0deg);
-
+                    @include mq(sm) {
+                        width:33%;
                     }
 
-                    &:hover {
+                    @media screen and (min-height:800px) {
+                        margin-bottom:50px;
+                    }
+
+                    .detail {
+                        //position:relative;
                         .mask {
-                            opacity:0.9;
-                            transform:scale(1,1) rotateZ(360deg);
+                            width:300px;
+                            height:300px;
+                            position:absolute;
+                            top:0;
+                            left:0;
+                            bottom:0;
+                            right:0;
+                            margin:auto;
+                            background-color:#000;
+                            opacity:0;
+                            //-webkit-transition:all 0.7s ease-out;
+                            //transition:all 0.7s ease-out;
+                            //transition-delay: 0.2s;
+                            //animation: rotation 2s ease 0s 1 alternate none running;
+                            transform:scale(0,0) rotateZ(0deg);
+                            z-index:99;
+                            display:block;
+                            .caption {
+                                opacity:0;
+                                transition:all 1s ease-in-out;
+                                transition-delay: 0.3s;
+                                position:relative;
+
+                                .caption-title {
+                                    font-size:0px;
+                                    padding:10px 0;
+                                    transition:all 0.8s  ease-in-out;
+
+                                }
+                                .content {
+                                    padding:0 15px;
+                                    letter-spacing: 0.3em;
+                                    font-size:0px;
+                                    transition:all 0.8s  ease-in-out;
+
+                                }
+
+                                .only-sp {
+                                    display:none;
+                                    position:absolute;
+                                    right:0;
+                                    top:0;
+                                    z-index:100;
+                                    @include mq(sm) {
+                                        display:block;
+                                    }
+                                }
+                            }
+                            @include mq(sm) {
+                                width:300px;
+                                height:300px;
+                                position:absolute;
+                                top:0;
+                                left:0;
+                                bottom:0;
+                                right:0;
+                                margin:auto;
+                                background-color:#000;
+                                opacity:0.9;
+                                z-index:99;
+                                transform:scale(1,1);
+                                display:none;
+                                .caption {
+                                    opacity:1;
+                                    transition:all 1s ease-in-out;
+                                    transition-delay: 0.3s;
+                                    position:relative;
+    
+                                    .caption-title {
+                                        font-size:24px;
+                                        padding:10px 0;
+                                        transition:all 0.8s  ease-in-out;
+    
+                                    }
+                                    .content {
+                                        padding:0 15px;
+                                        letter-spacing: 0.3em;
+                                        font-size:16px;
+                                        transition:all 0.8s  ease-in-out;
+    
+                                    }
+                                }
+                            }
+                        }
+                        @keyframes rotation {
+                            0% {
+                                transform:scale(0,0) rotate(180deg);
+                            }
+                            50% {
+                                transform:scale(0.2,0.2) rotate(-90deg)
+                            }
+                            100% {
+                                transform:scale(1,1) rotateZ(360deg);
+                                opacity:0.9;
+                            }
+                        }
+
+                        &:hover {
+                            .mask {
+
+                                animation: rotation 1s ease 0s 1 alternate forwards running;
+                                .caption {
+                                    opacity:1;
+                                    .caption-title {
+                                        font-size:24px;
+                                    }
+                                    .content {
+                                        font-size:16px;
+                                    }
+                                }
+                                
+                            }
                         }
                     }
-
                 }
 
                 .fab,.fas {
                     font-size:80px;
                     color:white;
+                    @include mq(sm) {
+                        font-size:60px;
+                    }
+                }
+                @include mq(sm) {
+                    position:relative;
+                    .col-md-4 {
+                        position:static;
+                    }
                 }
             }
         }
@@ -331,7 +751,7 @@ header {
 
 .works {
     .wrap {
-        padding-top:100px;
+        padding-top:30px;
         h1 {
             @include mq {
                 padding-bottom:50px;
@@ -344,7 +764,7 @@ header {
                     padding:0 0 30px 0;
                 }
                 .carousel-indicators {
-                    bottom:10px;
+                    bottom:0px;
                     li {
                         width:12px;
                         height:12px;
@@ -363,14 +783,31 @@ header {
                         img {
                             width:700px;
                             height:auto;
+                            opacity:1;
                             @include mq {
-                                width:85%;
+                                width:80%;
                                 height:auto;
                             }
+                            transition:all 0.2s ease-in-out;
                         }
                         p {
                             text-align: center;
                             color:white;
+                        }
+                        .carousel-caption {
+                            display:none;
+                            transition-delay:0.5s;
+                            p {
+                                font-weight: bold;
+                            }
+                        }
+                        &:hover {
+                            img {
+                                opacity:0.5;
+                            }
+                            .carousel-caption {
+                                display:inline-block;
+                            }
                         }
                     }
                 }
@@ -381,6 +818,11 @@ header {
 
 
 .contact {
+    .fp-tableCell {
+        @include mq(sm) {
+            vertical-align: middle;
+        }
+    }
     .wrap {
         h1 {
             padding-bottom:50px;
@@ -396,3 +838,89 @@ header {
         padding-top:50px;
     }
 }//contact
+
+//fullpage.jsのナビゲーション設定
+
+#fp-nav {
+    &.fp-right{
+        @include mq(sm) {
+            right:-2px !important;
+        }
+    }
+    ul {
+        li {
+            a.active {
+                span {
+                    &::after {
+                        content:"";
+                        width:22px;
+                        height:22px;
+                        border-radius:50%;
+                        background:transparent;
+                        border:2px solid white;
+                        z-index:900;
+                        transform: scale(0,0);
+                        -webkit-transition: all 0.5s ease-in-out;
+                        -moz-transition: all 0.5s ease-in-out;
+                        -o-transition: all 0.5s ease-in-out;
+                        transition: all 1s ease-in-out;
+                        position:absolute;
+                        left:50%;
+                        top:50%;
+                        margin:-11px 0 0 -11px;
+                        opacity:1;
+                    }
+                }
+            }
+            &:hover {
+                a.active {
+                    span {
+                        &::after {
+                            transform: scale(1,1);
+                            opacity:0;
+                        }
+                    }
+                }
+            }
+            a {
+                position:relative;
+                span {
+                    &::after{
+                        content:"";
+                        width:20px;
+                        height:20px;
+                        border-radius:50%;
+                        background:transparent;
+                        border:2px solid white;
+                        z-index:900;
+                        transform: scale(1,1);
+                        -webkit-transition: all 0.5s ease-in-out;
+                        -moz-transition: all 0.5s ease-in-out;
+                        -o-transition: all 0.5s ease-in-out;
+                        transition: all 1s ease-in-out;
+                        position:absolute;
+                        left:50%;
+                        top:50%;
+                        margin:-10px 0 0 -10px;
+                        opacity:0;
+                    }
+                }
+            }
+            &:hover {
+                a {
+                    span {
+                        &::after {
+                            transform: scale(0,0);
+                            opacity:1;
+                        }
+                    }
+                }
+            }
+            a {
+                span {
+                    background:#aaa;
+                }
+            }
+        }
+    }
+}
