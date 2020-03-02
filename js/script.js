@@ -22,11 +22,9 @@ $(document).ready(function() {
             }
         }
     });
-    
-    window.onload = function() {
-        const spinner = document.getElementById('loading');
-        spinner.classList.add('loaded');
-    }
+    const spinner = document.getElementById('loading');
+    spinner.classList.add('loaded');
+
 
 
     var prog_plus = function() {
@@ -47,9 +45,8 @@ $(document).ready(function() {
     
 
 
-    /*$("html,body").not(".detail").click(function(event){
+    /*$(document).not(".detail").click(function(){
         console.log("click on");
-        event.stopPropagation();
         var count = 0;
         var styles = document.getElementsByClassName("mask");
         for(var i = 0;i < styles.length;i++){
@@ -81,9 +78,10 @@ $(document).ready(function() {
         if(count==0) {
             //console.log("mask fadein");
             $(this).find(".mask").fadeIn();
-        }else{
-            $(this).find(".mask").fadeOut();
         }
+        /*else{
+            $(this).parents(".detail").find(".mask").fadeOut();
+        }*/
     });
 
     $(".mask").click(
@@ -92,7 +90,7 @@ $(document).ready(function() {
             return 0;
         }
     );
-    
+
     $(".close-btn").click(
         function(e) {
             if($(".mask").is(":visible")){

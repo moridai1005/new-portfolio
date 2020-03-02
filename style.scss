@@ -231,6 +231,9 @@ body {
         .progress-bar {
             width:0%;
         }
+        @include mq {
+            width:95%;
+        }
     }
 
 }//loading
