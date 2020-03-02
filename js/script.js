@@ -66,7 +66,7 @@ $(document).ready(function() {
         }
     });*/
 
-
+/*
     $(".detail").click(function() {
         console.log("detail true");
         var count = 0;
@@ -80,9 +80,9 @@ $(document).ready(function() {
         }    
         if(count==0) {
             //console.log("mask fadein");
-            $(this).parents(".detail").find(".mask").fadeIn();
+            $(this).find(".mask").fadeIn();
         }else{
-            $(this).parents(".detail").find(".mask").fadeOut();
+            $(this).find(".mask").fadeOut();
         }
     });
 
@@ -102,5 +102,5 @@ $(document).ready(function() {
             }
         }
     );
-
+*/
 });
