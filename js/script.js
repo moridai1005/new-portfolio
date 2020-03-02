@@ -47,7 +47,7 @@ $(document).ready(function() {
     
 
 
-    $("html,body").not(".detail").click(function(event){
+    /*$("html,body").not(".detail").click(function(event){
         console.log("click on");
         event.stopPropagation();
         var count = 0;
@@ -64,7 +64,7 @@ $(document).ready(function() {
                 styles[i].style.display = "none";
             }
         }
-    });
+    });*/
 
 
     $(".detail").click(function() {
@@ -86,6 +86,13 @@ $(document).ready(function() {
         }
     });
 
+    $(".mask").click(
+        function(e) {
+            e.stopPropagation();
+            return 0;
+        }
+    );
+    
     $(".close-btn").click(
         function(e) {
             if($(".mask").is(":visible")){
