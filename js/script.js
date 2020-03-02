@@ -66,7 +66,7 @@ $(document).ready(function() {
         }
     });*/
 
-/*
+
     $(".detail").click(function() {
         console.log("detail true");
         var count = 0;
@@ -102,5 +102,5 @@ $(document).ready(function() {
             }
         }
     );
-*/
+
 });
