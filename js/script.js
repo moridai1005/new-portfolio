@@ -55,7 +55,7 @@ $(document).ready(function() {
         }
     );
 
-    $(document).click(function(event){
+    /*$(document).click(function(event){
         console.log("click on");
         event.stopPropagation();
         var count = 0;
@@ -74,7 +74,7 @@ $(document).ready(function() {
                 $(".mask").hide();
             }
         }
-    });
+    });*/
 
 
     $(".detail").click(function() {
