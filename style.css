@@ -3,6 +3,12 @@ body {
   overflow: hidden;
 }
 
+@media screen and (max-width: 600px) {
+  body h2 {
+    font-size: 26px;
+  }
+}
+
 #loading {
   position: fixed;
   top: 0;
@@ -551,6 +557,12 @@ header .wrap .navbar .navbar-collapse .navbar-nav a:hover::after {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .profile .empty-box .profile-content {
+    padding: 10px;
+  }
+}
+
 .profile .empty-box .profile-content.active2::after {
   content: "";
   width: 2px;
@@ -632,7 +644,7 @@ header .wrap .navbar .navbar-collapse .navbar-nav a:hover::after {
 
 @media screen and (max-width: 600px) {
   .profile .empty-box .profile-content .content-text p {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -920,6 +932,18 @@ header .wrap .navbar .navbar-collapse .navbar-nav a:hover::after {
 
 .works .wrap .container .carousel .carousel-inner .carousel-item .carousel-caption p {
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .works .wrap .container .carousel .carousel-inner .carousel-item img {
+    opacity: 0.6;
+  }
+  .works .wrap .container .carousel .carousel-inner .carousel-item .carousel-caption {
+    display: inline-block;
+  }
+  .works .wrap .container .carousel .carousel-inner .carousel-item .carousel-caption p {
+    font-size: 14px;
+  }
 }
 
 .works .wrap .container .carousel .carousel-inner .carousel-item:hover img {

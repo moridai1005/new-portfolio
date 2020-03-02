@@ -14,6 +14,11 @@ $mq-breakpoints: (
 
 body {
     overflow: hidden;
+    h2 {
+        @include mq(sm) {
+            font-size:26px;
+        }
+    }
   }
 
 #loading {
@@ -485,6 +490,9 @@ header {
             @include mq(md) {
                 flex-direction: column;
             }
+            @include mq(sm) {
+                padding:10px;
+            }
 
             &.active2 {
                 &::after {
@@ -563,7 +571,7 @@ header {
                 p {
                     font-size:22px;
                     @include mq(sm) {
-                        font-size:16px;
+                        font-size:14px;
                     }
                 }
             }
@@ -799,6 +807,17 @@ header {
                             transition-delay:0.5s;
                             p {
                                 font-weight: bold;
+                            }
+                        }
+                        @include mq {
+                            img {
+                                opacity:0.6;
+                            }
+                            .carousel-caption {
+                                display:inline-block;
+                                p {
+                                    font-size:14px;
+                                }
                             }
                         }
                         &:hover {

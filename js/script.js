@@ -39,7 +39,7 @@ $(document).ready(function() {
         var perc = 100 * prog / 400;
         $('.progress-bar').text(perc+"%");
     }
-    setInterval(prog_plus,750);
+    setInterval(prog_plus,300);
 
     $('.mask > .caption').append(
         '<div class="only-sp"><button class="btn btn-sm btn-secondary close-btn"><span class="fa fa-times"></span></button></div>'
