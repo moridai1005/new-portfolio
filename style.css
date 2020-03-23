@@ -285,7 +285,7 @@ header .wrap .navbar .navbar-collapse .navbar-nav a {
 header .wrap .navbar .navbar-collapse .navbar-nav a:after {
   position: absolute;
   bottom: 0px;
-  left: 0;
+  left: 8px;
   content: "";
   width: 90%;
   height: 2px;
