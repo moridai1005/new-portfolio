@@ -246,6 +246,12 @@ body {
   width: 0%;
 }
 
+@media screen and (max-width: 768px) {
+  #loading .progress {
+    width: 95%;
+  }
+}
+
 .loaded {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -285,9 +291,9 @@ header .wrap .navbar .navbar-collapse .navbar-nav a {
 header .wrap .navbar .navbar-collapse .navbar-nav a:after {
   position: absolute;
   bottom: 0px;
-  left: 8px;
+  left: 0;
   content: "";
-  width: 90%;
+  width: 100%;
   height: 2px;
   -webkit-transform: scale(0, 1);
           transform: scale(0, 1);

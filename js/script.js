@@ -7,7 +7,7 @@ $(document).ready(function() {
         verticalCentered:true,
         scrollOverflow:true,
         onLeave: function(index, nextIndex, direction) {
-            var index = index.index
+            var index = index.index;
             if(index === 0 && direction == 'down') {
                 $(".empty-box").addClass("active1");
                 $(".profile-content").addClass("active2");
@@ -22,10 +22,6 @@ $(document).ready(function() {
             }
         }
     });
-    const spinner = document.getElementById('loading');
-    spinner.classList.add('loaded');
-
-
 
     var prog_plus = function() {
         if(prog == 400){
@@ -102,3 +98,9 @@ $(document).ready(function() {
     );
 
 });
+
+    
+window.onload = function() {
+    const spinner = document.getElementById('loading');
+    spinner.classList.add('loaded');
+}
